@@ -3,6 +3,7 @@ import {getData} from "../../actions/data-actions";
 import './card.css';
 import PostComment from "./post-comment";
 import CommentForm from "../comment-form";
+import PostForm from "../post-form";
 
 class PostCard extends React.Component {
     constructor(props) {
@@ -24,7 +25,6 @@ class PostCard extends React.Component {
     }
 
     handleSuccess = (comments) => {
-        console.log(comments);
         this.setState({
             comments: comments
         })
@@ -49,27 +49,42 @@ class PostCard extends React.Component {
         })
     };
 
+    toggleEditMode = () => {
+        this.setState({
+            editMode: !this.state.editMode
+        })
+    };
     render() {
-        const {title, body} = this.props;
-        const {comments, isCommentsOpen, isOpen, postData} = this.state;
+        const {title, body, id} = this.props;
+        const {editMode, comments, isCommentsOpen, isOpen, postData} = this.state;
         return (
-            <div className={`post-card`} style={{backgroundColor: isOpen && '#f79400'}}>
+            <div className={`post-card ${isOpen ? 'active' : ''}`}>
 
-                <h4 onClick={this.togglePost} className={`post-title`} style={{fontWeight: isOpen ? 'bold' : 'normal'}}>{title}</h4>
+                {editMode ?
+                    <PostForm isActive id={id} title={title} body={body} updateMode updatePost={this.props.updatePost} closeForm={this.toggleEditMode}/>
+                    :
+                    <div>
+                        <h4 onClick={this.togglePost} className={`post-title`}
+                            style={{fontWeight: isOpen ? 'bold' : 'normal'}}>{title}</h4>
 
-                {isOpen && <p className={`post-body`}>{body}</p>}
+                        {isOpen && <div>
+                            <p className={`post-body`}>{body}</p>
+                            <button onClick={this.toggleEditMode}>edit post</button>
+                        </div>}
 
 
-                {comments && <p className={`post-comments-triger`} onClick={this.toggleComments}
-                                style={{...commentsLength, ...isCommentsOpen && commentsLengthActive}}>
-                    {comments.length} comments
-                </p>}
+                        {comments && <p className={`post-comments-triger`} onClick={this.toggleComments}
+                                        style={{...commentsLength, ...isCommentsOpen && commentsLengthActive}}>
+                            {comments.length} comments
+                        </p>}
 
-                {isCommentsOpen &&
-                <div className={`post-comments`}>
-                    <CommentForm postId={postData.id} addComment={this.addComment}/>
-                    {comments.map((comment, c) => <PostComment {...comment} key={c}/>)}
-                </div>
+                        {isCommentsOpen &&
+                        <div className={`post-comments`}>
+                            <CommentForm postId={postData.id} addComment={this.addComment}/>
+                            {comments.map((comment, c) => <PostComment {...comment} key={c}/>)}
+                        </div>
+                        }
+                    </div>
                 }
             </div>
         )
@@ -87,6 +102,5 @@ const commentsLength = {
     fontWeight: 'bold'
 };
 const commentsLengthActive = {
-    border: '1px solid 000',
     textDecoration: 'underline'
 };

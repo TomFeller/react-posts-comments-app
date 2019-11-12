@@ -26,10 +26,18 @@ class Feed extends React.Component {
     };
 
     addNewPost = (data) => {
-        console.log(data)
         const posts = this.state.posts.unshift(data);
         this.setState({
             posts: this.state.posts
+        })
+    };
+    updatePost = (data) => {
+        const {posts} = this.state;
+        posts.find(post => post.id === data.id).title = data.title;
+        posts.find(post => post.id === data.id).body = data.body;
+
+        this.setState({
+            posts: posts
         })
     };
 
@@ -44,8 +52,8 @@ class Feed extends React.Component {
                     :
                     <div>
                         <h3 style={{marginTop: 0}}>Posts</h3>
-                        <PostForm addNewPost={this.addNewPost}/>
-                        {posts.map((post, p) => <PostCard key={p} {...post}/>)}
+                        <PostForm addNewPost={this.addNewPost} />
+                        {posts.map((post, p) => <PostCard key={p} {...post} updatePost={this.updatePost}/>)}
                     </div>
                 }
             </div>

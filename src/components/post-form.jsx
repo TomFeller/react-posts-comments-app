@@ -1,5 +1,5 @@
 import React from 'react';
-import {postData} from "../actions/data-actions";
+import {editData, postData} from "../actions/data-actions";
 import {Loader} from "./utils/loader/loader";
 
 class PostForm extends React.Component {
@@ -7,8 +7,11 @@ class PostForm extends React.Component {
         super(props);
 
         this.state = {
-            title: '',
-            body: ''
+            title: this.props.title,
+            body: this.props.body,
+            id: this.props.id,
+            formOpen: this.props.isActive,
+            action: this.props.id ? editData : postData
         }
     }
 
@@ -21,22 +24,30 @@ class PostForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const {title, body} = this.state;
-        const data = {
+        const {action, title, body, id} = this.state;
+         const data = {
+            id: id,
             title: title,
             body: body
         };
         this.setState({
             isLoading: true
         });
-        postData('posts', data, this.handleSuccess);
+
+        action('posts', data, this.handleSuccess);
+
     };
 
     handleSuccess = (data) => {
         this.setState({
             isLoading: false
         });
-        this.props.addNewPost(data);
+        if (!this.props.id) {
+            this.props.addNewPost(data);
+        } else {
+            this.props.updatePost(data);
+            this.props.closeForm()
+        }
     };
 
     toggleForm = () => {
@@ -47,9 +58,10 @@ class PostForm extends React.Component {
 
     render() {
         const {title, body, isLoading, formOpen} = this.state;
+        const {closeForm} = this.props;
         return (
             <div>
-                <button onClick={this.toggleForm}>{formOpen ? 'close form' : 'Add new post'}</button>
+                <button onClick={closeForm ? closeForm : this.toggleForm}>{formOpen ? 'close form' : 'Add new post'}</button>
                 {formOpen &&
                 <form style={{padding: '10px'}}>
                     <div className='field'>
@@ -69,7 +81,7 @@ class PostForm extends React.Component {
                                   name={'body'}>{body}</textarea>
                     </div>
 
-                    {isLoading ? <Loader size={10}/> : <button onClick={this.handleSubmit}>submit</button>}
+                    {isLoading ? <Loader size={10}/> : <button onClick={this.handleSubmit}>{this.props.id ? 'save' : 'submit'}</button>}
                 </form>
                 }
             </div>
