@@ -1,0 +1,13 @@
+.comment {
+    text-align: left;
+    border-bottom: 1px solid;
+    padding: 10px 0;
+}
+.comment-header h6 {
+    margin: 0;
+    text-align: left;
+    cursor: pointer;
+}
+.comment-body p {
+    margin: 0;
+}
