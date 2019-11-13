@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7cd7c2d1-00bb-4687-bd18-8272c2a09526" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/data-actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/data-actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/feed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feed.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/post-card/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post-card/card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/post-card/post-card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post-card/post-card.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/post-form.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post-form.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="7cd7c2d1-00bb-4687-bd18-8272c2a09526" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -59,8 +52,8 @@
           <file leaf-file-name="post-form.jsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/post-form.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="83" column="126" selection-start-line="83" selection-start-column="126" selection-end-line="83" selection-end-column="126" />
+                <state relative-caret-position="565">
+                  <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -327,7 +320,7 @@
       <workItem from="1573576952331" duration="1780000" />
       <workItem from="1573578754685" duration="1785000" />
       <workItem from="1573580579573" duration="2232000" />
-      <workItem from="1573582838099" duration="138000" />
+      <workItem from="1573582838099" duration="1480000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1573578256633</created>
@@ -336,15 +329,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573578256633</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial commit">
+      <created>1573583096786</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573583096786</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18899000" />
+    <option name="totallyTimeSpent" value="20241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24973656" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -794,8 +793,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/post-form.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="83" column="126" selection-start-line="83" selection-start-column="126" selection-end-line="83" selection-end-column="126" />
+        <state relative-caret-position="565">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
